@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="mt-3">
+      <h2 class="text-center text-light">My Posts</h2>
+      {{!-- Shows each posts on profile --}}
+      <div class="col border border-dark rounded" style="height: 50em; overflow-y: scroll;">
+        {{#each userPosts}}  
+          <form class="container-fluid mt-2 mb-2">
+            <div class="row">
+              <button class="col-12 bg-dark p-2">
+                  <div class="card-header text-center bg-dark text-light">
+                    <h6 class="card-text bg-dark">Posted on {{format_date createdAt}} at {{format_time createdAt}}</h6>
+                  </div>   
+                  <div class="card-body bg-dark text-light">
+                    <p class="card-text bg-dark">{{content}}</p>
+                  </div>
+              </button>
+            </div>
+          </form>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+
+<script src='/js/saveprofile.js'></script>
