@@ -9,13 +9,13 @@
           <div class="row">
             <div class="col-12 bg-dark p-2">
               <div class="card-header text-center bg-dark text-light">
-                <h6 class="card-text bg-dark">Post by {{User.username}}<br> on {{format_date createdAt}} at {{format_time createdAt}}</h6>
+                <h6 class="card-text bg-dark">Post by {{User.username}}</h6>
                 </div>
                 <div class="card-body text-center bg-dark text-light">
                   <p class="card-text rounded">{{content}}</p>
                   </div>
                   <form class="comment-form bg-dark text-center text-light" data-id={{id}}>
-                    {{#each post.Comments as |comment|}}
+                    {{!-- {{#each post.Comments as |comment|}}
                       <div class="container-fluid col-12">
                         <div class="row">
                           <div class="col-12 bg-dark p-2">
@@ -29,17 +29,15 @@
                           </div>
                         
                       </div>
-                    {{/each}}
+                    {{/each}} --}}
                     <div class="bg-dark">
                       <input class="comment-input bg-light text-center" data-postid={{id}} placeholder="Helpful comment"/>
                       <button type="submit" class="btn btn-outline-light btn-sm new-comment-btn mb-1" data-toggle="modal" data-target="#comment-modal">Add Comment</button>
                     </div>
                   </form>
-              
             </div>
           </div>
         </div>
       {{/each}}
-
     </div>
 </div>

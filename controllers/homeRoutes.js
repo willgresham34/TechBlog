@@ -39,24 +39,14 @@ router.get("/login", async (req, res) => {
 router.get("/homepage", withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
-      include: [
-        User,
-        {
-          model: Comments,
-          include: User,
-        },
-      ],
-      order: [["created_at", "DESC"]],
+      include: [User],
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
 
     console.log("Posts on Homepage: ", posts);
 
-    res.render("homepage", {
-      posts,
-      loggedIn: req.session.loggedIn,
-    });
+    res.render("homepage");
   } catch (err) {
     res.status(500).json(err);
   }
