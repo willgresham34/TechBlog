@@ -50,7 +50,6 @@ router.get("/homepage", withAuth, async (req, res) => {
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
-    let randomIndex = Math.floor(Math.random() * quoteList.length);
 
     console.log("Posts on Homepage: ", posts);
 
