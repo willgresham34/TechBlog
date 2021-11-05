@@ -1,15 +1,15 @@
 const loginUser = async (event) => {
   event.preventDefault();
 
-  const existingEmail = document.querySelector("#userEmail").value.trim();
-  const existingPassword = document.querySelector("#userPassword").value.trim();
+  const userEmail = document.querySelector("#userEmail").value.trim();
+  const userPassword = document.querySelector("#userPassword").value.trim();
 
   const response = await fetch("/api/user/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      email: existingEmail,
-      password: existingPassword,
+      email: userEmail,
+      password: userPassword,
     }),
   });
 
