@@ -1,16 +1,16 @@
 const loginUser = async (event) => {
   event.preventDefault();
 
-  const existingEmail = document.querySelector("#userEmail");
-  const existingPassword = document.querySelector("#userPassword");
+  const existingEmail = document.querySelector("#userEmail").value.trim();
+  const existingPassword = document.querySelector("#userPassword").value.trim();
 
   const response = await fetch("/api/user/login", {
     method: "POST",
-    body: JSON.stringify({
-      email: existingEmail.value,
-      password: existingPassword.value,
-    }),
     headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      email: existingEmail,
+      password: existingPassword,
+    }),
   });
 
   if (response.ok) {
@@ -20,4 +20,4 @@ const loginUser = async (event) => {
   }
 };
 
-document.querySelector("#login-form").addEventListener("submit", loginUser);
+document.querySelector("#login-form").addEventListener("click", loginUser);
