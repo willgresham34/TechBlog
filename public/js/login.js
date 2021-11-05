@@ -1,8 +1,10 @@
 const loginUser = async (event) => {
   event.preventDefault();
+  console.log("runs function");
 
   const userEmail = document.querySelector("#userEmail").value.trim();
   const userPassword = document.querySelector("#userPassword").value.trim();
+  console.log(userEmail + userPassword);
 
   const response = await fetch("/api/user/login", {
     method: "POST",
@@ -20,4 +22,4 @@ const loginUser = async (event) => {
   }
 };
 
-document.querySelector("#login-form").addEventListener("click", loginUser);
+document.querySelector("#login-btn").addEventListener("click", loginUser);
