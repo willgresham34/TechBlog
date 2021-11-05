@@ -28,4 +28,3 @@ const signUpUser = async (event) => {
 };
 
 document.querySelector("#signup-form").addEventListener("submit", signUpUser);
-``;

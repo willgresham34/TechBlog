@@ -4,12 +4,13 @@ const { withAuth } = require("../../utils/withAuth");
 
 // Creates new post
 router.post("/homepage", withAuth, async (req, res) => {
+  console.log(req.body);
   try {
     const newPost = await Post.create({
       content: req.body.content,
-      userId: req.session.userId,
+      title: req.body.title,
     });
-    console.log("newpost ", newPost);
+    console.log("newPost", newPost);
     res.json(newPost);
   } catch (err) {
     console.error(err);

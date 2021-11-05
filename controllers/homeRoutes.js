@@ -46,10 +46,14 @@ router.get("/homepage", withAuth, async (req, res) => {
 
     console.log("Posts on Homepage: ", posts);
 
-    res.render("homepage");
+    res.render("homepage", { posts });
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+router.get("/make-post", withAuth, (req, res) => {
+  res.render("makePost");
 });
 
 module.exports = router;
